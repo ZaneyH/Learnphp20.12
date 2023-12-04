@@ -9,3 +9,6 @@ function view($viewName, $wars = []){
 function auth(){
     return User::auth();
 }
+
+
+// method
