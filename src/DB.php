@@ -12,7 +12,7 @@ class DB {
     public function __construct(){
         try {
             $this->conn = new PDO("sqlite:db.sqlite");
-            // set the PDO error mode to exception
+            
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
   
@@ -25,7 +25,7 @@ class DB {
         $stmt = $this->conn->prepare("SELECT * FROM $table");
         $stmt->execute();
 
-        // set the resulting array to associative
+     
         $stmt->setFetchMode(PDO::FETCH_CLASS,$class);
         return $stmt->fetchAll();
     }
@@ -43,7 +43,7 @@ class DB {
         $sql = "INSERT INTO $table ($fieldNameText)
         VALUES ('$fieldValuesText')";
 
-        // use exec() because no results are returned
+        
         $this->conn->exec($sql);
     }
     public function update($table, $fields){
@@ -60,7 +60,7 @@ class DB {
         die();
          $stmt = $this->conn->prepare($sql);
 
-  // execute the query
+
          $stmt->execute();
     }
     public function delete($table, $id){
@@ -74,7 +74,7 @@ class DB {
         $stmt = $this->conn->prepare("SELECT * FROM $table where $field='$value'");
         $stmt->execute();
 
-        // set the resulting array to associative
+      
         $stmt->setFetchMode(PDO::FETCH_CLASS,$class);
         return $stmt->fetchAll();
     }

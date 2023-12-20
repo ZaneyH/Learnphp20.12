@@ -13,10 +13,12 @@ class ArticlesController {
         view('articles/create');
     }
     public function store(){
+        $filename = md5($_FILES['image']['name'].microtime()). '.' . pathinfo($_FILES['image']['name'], PATHINFO_ALL);
 
         $article = new Article();
         $article->title = $_POST['title'];
         $article->body = $_POST['body'];
+       
         $article->save();
         header('Location: /admin/articles');
 

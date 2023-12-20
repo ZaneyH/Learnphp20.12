@@ -14,6 +14,22 @@
                 <th>body</th>
                 <th><?=$article->body?></th>
             </tr>
+            <tr>
+                <th>Vegan</th>
+                <th><?=$article->isvegan?></th>
+            </tr>
+            <tr>
+                <th>Spiciness</th>
+                <th><?=$article->spiciness?></th>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <th><?=$article->price?></th>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <th><?=$article->picture?></th>
+            </tr>
         </tbody>
 
     </table>
