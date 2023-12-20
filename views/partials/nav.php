@@ -3,29 +3,45 @@
     <a class="navbar-item" href="https://bulma.io">
       <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
     </a>
-
+ 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
-
+ 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
+      <a class="navbar-item" href="/">
         Home
       </a>
-
-      <a class="navbar-item" href="/admin/articles">
-        Admin
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
+ 
+      <div class="navbar-item has-dropdown is-hoverable" href="/admin/articles">
+        <a class="navbar-link">
+          Admin
+        </a>
+ 
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="/admin/users">
+          Accounts
+          </a>
+          <a class="navbar-item" href="/admin/articles">
+          Admin
+        </a>
+        </div>
+      </div>
+ 
+ 
+     
+ 
+   
+ 
+    <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           More
         </a>
-
+ 
         <div class="navbar-dropdown">
           <a class="navbar-item">
             About
@@ -36,6 +52,7 @@
           <a class="navbar-item">
             Contact
           </a>
+         
           <hr class="navbar-divider">
           <a class="navbar-item">
             Report an issue
@@ -43,20 +60,21 @@
         </div>
       </div>
     </div>
-
+  </div>
+ 
     <div class="navbar-end">
       <div class="navbar-item">
         <?php if(auth()): ?>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            <?=auth()->email?>
-          </a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="/logout">
-              Logout
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              <?=auth()->email?>
             </a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="/logout">
+                Logout
+              </a>
+            </div>
           </div>
-        </div>
         <?php else: ?>
         <div class="buttons">
           <a class="button is-primary" href="/register">
@@ -71,4 +89,3 @@
     </div>
   </div>
 </nav>
-    
